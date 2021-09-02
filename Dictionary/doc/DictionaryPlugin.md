@@ -76,3 +76,16 @@ The table below lists configuration options of the plugin.
 | configuration | object | <sup>*(optional)*</sup>  |
 | configuration?.storage | string | <sup>*(optional)*</sup> Filename of DataModel file (default: DataModel.json) |
 
+
+<a name=head.Curl_Commands></a>
+# Curl Commands to get/Set values 
+
+**To Set**
+
+curl -H "Content-Type: application/json"  -X POST -d "Value" http://127.0.0.1:55555/Service/Dictionary/NameSpace/key
+
+
+**To Get**
+
+curl -H "Content-Type: application/json"  -X GET  http://127.0.0.1:55555/Service/Dictionary/NameSpace/key
+
