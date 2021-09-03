@@ -77,15 +77,50 @@ The table below lists configuration options of the plugin.
 | configuration?.storage | string | <sup>*(optional)*</sup> Filename of DataModel file (default: DataModel.json) |
 
 
-<a name=head.Curl_Commands></a>
+<a name="head.activePlugins"></a>
+# Active plugins
+
+Command to get active Plugins details.
+
+```json
+curl -X GET http://127.0.0.1:55555/jsonrpc
+```
+
+<a name="head.PluginStatus"></a>
+# Activate /Deactivate Dictionary plugin
+
+*Activate*
+
+```json
+curl -d '{"jsonrpc":"2.0","id":"3","method": "Controller.1.activate", "params":{"callsign":"Dictionary"}}' http://127.0.0.1:55555/jsonrpc
+```
+
+*Deactivate*
+
+```json
+curl -d '{"jsonrpc":"2.0","id":"3","method": "Controller.1.deactivate", "params":{"callsign":"Dictionary"}}' http://127.0.0.1:55555/jsonrpc
+```
+
+<a name="head.Curl_Commands"></a>
 # Curl Commands to get/Set values 
 
+Curl Commands to get and et values in Dictionary Plugin
 **To Set**
 
+```json
 curl -H "Content-Type: application/json"  -X POST -d "Value" http://127.0.0.1:55555/Service/Dictionary/NameSpace/key
-
+```
 
 **To Get**
 
+```json
 curl -H "Content-Type: application/json"  -X GET  http://127.0.0.1:55555/Service/Dictionary/NameSpace/key
+```
 
+*examples*
+
+```json
+curl -H "Content-Type: application/json"  -X POST -d "Ford" http://127.0.0.1:55555/Service/Dictionary/Vehicle/Brand
+
+curl -H "Content-Type: application/json"  -X GET  http://127.0.0.1:55555/Service/Dictionary/Vehicle/Brand
+```
