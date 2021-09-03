@@ -76,7 +76,6 @@ The table below lists configuration options of the plugin.
 | configuration | object | <sup>*(optional)*</sup>  |
 | configuration?.storage | string | <sup>*(optional)*</sup> Filename of DataModel file (default: DataModel.json) |
 
-
 <a name="head.activePlugins"></a>
 # Active plugins
 
@@ -104,7 +103,8 @@ curl -d '{"jsonrpc":"2.0","id":"3","method": "Controller.1.deactivate", "params"
 <a name="head.Curl_Commands"></a>
 # Curl Commands to get/Set values 
 
-Curl Commands to get and et values in Dictionary Plugin
+Curl Commands to get and set values in Dictionary Plugin
+
 **To Set**
 
 ```json
@@ -120,7 +120,8 @@ curl -H "Content-Type: application/json"  -X GET  http://127.0.0.1:55555/Service
 *examples*
 
 ```json
-curl -H "Content-Type: application/json"  -X POST -d "Ford" http://127.0.0.1:55555/Service/Dictionary/Vehicle/Brand
+curl -H "Content-Type: application/json"  -X POST -d "Ford" http://127.0.0.1:55555/Service/Dictionary/Car/Brand
 
-curl -H "Content-Type: application/json"  -X GET  http://127.0.0.1:55555/Service/Dictionary/Vehicle/Brand
+curl -H "Content-Type: application/json"  -X GET  http://127.0.0.1:55555/Service/Dictionary/Car/Brand
 ```
+
