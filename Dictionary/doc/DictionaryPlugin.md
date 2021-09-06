@@ -85,19 +85,55 @@ Command to get active Plugins details.
 curl -X GET http://127.0.0.1:55555/jsonrpc
 ```
 
+*response*
+
+```json
+{"plugins":[{"callsign":"Controller","classname":"Controller","configuration":{
+    "subsystems":null,
+    "resumes":null
+   }
+,"state":"activated","observers":0},{"callsign":"Dictionary","locator":"libWPEFrameworkDictionary.so","classname":"Dictionary","autostart":true,"configuration":{
+  "storage":"DataModel.json",
+  "lingertime":10
+ }
+,"state":"activated","observers":0}],"channel":[{"remote":"localhost:58300","state":"WebServer","activity":true,"id":1}],"server":{"threads":[0,4,4,2,5],"pending":0,"occupation":1}}
+```
+
 <a name="head.PluginStatus"></a>
 # Activate /Deactivate Dictionary plugin
 
-*Activate*
+#### Activate
 
 ```json
 curl -d '{"jsonrpc":"2.0","id":"3","method": "Controller.1.activate", "params":{"callsign":"Dictionary"}}' http://127.0.0.1:55555/jsonrpc
 ```
 
-*Deactivate*
+*response*
+```json
+{"jsonrpc":"2.0","id":3,"result":null}
+```
+
+server side log
+```json
+[Library.cpp:91](Library)<7179><1>: Loaded library: /home/ntedev/thunder_test/install/usr/lib/wpeframework/plugins/libWPEFrameworkDictionary.so
+[  258418311 us] Activated plugin [Dictionary]:[Dictionary]
+```
+
+#### Deactivate
 
 ```json
 curl -d '{"jsonrpc":"2.0","id":"3","method": "Controller.1.deactivate", "params":{"callsign":"Dictionary"}}' http://127.0.0.1:55555/jsonrpc
+```
+
+*response*
+```json
+{"jsonrpc":"2.0","id":3,"result":null}
+```
+
+server side log
+```json
+[  103835320 us] Deactivated plugin [Dictionary]:[Dictionary]
+[Library.cpp:181](Release)<7179><1>: Unloaded library: /home/ntedev/thunder_test/install/usr/lib/wpeframework/plugins/libWPEFrameworkDictionary.so
 ```
 
 <a name="head.Curl_Commands"></a>
@@ -121,7 +157,12 @@ curl -H "Content-Type: application/json"  -X GET  http://127.0.0.1:55555/Service
 
 ```json
 curl -H "Content-Type: application/json"  -X POST -d "Ford" http://127.0.0.1:55555/Service/Dictionary/Car/Brand
-
-curl -H "Content-Type: application/json"  -X GET  http://127.0.0.1:55555/Service/Dictionary/Car/Brand
 ```
 
+```json
+curl -H "Content-Type: application/json"  -X GET  http://127.0.0.1:55555/Service/Dictionary/Car/Brand
+```
+*response*
+```json
+Ford
+```
