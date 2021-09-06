@@ -76,6 +76,7 @@ The table below lists configuration options of the plugin.
 | configuration | object | <sup>*(optional)*</sup>  |
 | configuration?.storage | string | <sup>*(optional)*</sup> Filename of DataModel file (default: DataModel.json) |
 
+
 > below instructions are applicable for **linux platform**
 
 <a name="head.activePlugins"></a>
